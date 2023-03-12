@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import {useState} from 'react';
 import './App.css';
+import One from './component/One';
+import Two from './component/Two';
+import Button from './component/Button';
+import Ans from './component/Ans';
 
 function App() {
+
+  const [N1, setN1] = useState('')
+  const [N2, setN2] = useState('')
+  const [result, setresult] = useState('')
+
+
+const handleClick=(e)=>{
+  setresult(parseInt(N1)+parseInt(N2));
+
+}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <One temp1={setN1}/>
+      <Two temp2={setN2}/>
+      <Button Click={handleClick}/>
+      <Ans show={result}/>
     </div>
   );
 }
